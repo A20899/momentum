@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Todo List</title>
+    <link rel="stylesheet" type="text/css" href="todo.css" />
+  </head>
+  <body>
+    <button onclick="openModal()" id="openModal">Todo</button>
+
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <div class="todo-list">
+          <h1>Today</h1>
+        </br>
+        </br>
+          <input
+            type="text"
+            id="taskInput"
+            placeholder="Enter a task..."
+            onkeydown="addTask(event)"
+          />
+          <ul id="taskList"></ul>
+        </div>
+      </div>
+    </div>
+
+    
+    <script src="todo.js"></script>
+  </body>
+</html>
