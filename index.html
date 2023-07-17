@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Momentum App</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+ <section id="hero">
+<video autoplay loop muted plays-inline class="back-video">
+  <source src="images/background.mp4" type="video/mp4">
+</video>
+  
+ </section>
+
+ 
+ <!--Todo list -->
+ <button onclick="openModal()" id="openModal">Todo</button>
+
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <div class="todo-list">
+          <h1>Today</h1>
+        </br>
+        </br>
+          <input
+            type="text"
+            id="taskInput"
+            placeholder="Enter a task..."
+            onkeydown="addTask(event)"
+          />
+          <ul id="taskList"></ul>
+        </div>
+      </div>
+    </div>
+  <div class="container">
+    <h1 id="time"></h1>
+    <h2 id="greeting"></h2>
+  </div>
+  <script src="script/script.js"></script>
+  <script src="script/todo.js"></script>
+</body>
+</html>
