@@ -2,12 +2,12 @@
 <html>
 <head>
   <title>Momentum App</title>
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="./style.css">
 </head>
 <body>
  <section id="hero">
 <video autoplay loop muted plays-inline class="back-video">
-  <source src="images/background.mp4" type="video/mp4">
+  <source src="./background.mp4" type="video/mp4">
 </video>
   
  </section>
@@ -36,7 +36,27 @@
     <h1 id="time"></h1>
     <h2 id="greeting"></h2>
   </div>
-  <script src="script/script.js"></script>
-  <script src="script/todo.js"></script>
+
+  <div class="quotes"></div>
+
+  <div class="quotesModal">
+    <input 
+      type="text"
+      id="quoteInput"
+      placeholder="Enter a quote"
+      onkeydown="addQuote(event)"
+    >
+    <div id="quotesList"></div>
+  </div>
+
+  <button id="quotesBtn">
+    Quote
+  </button>
+
+
+
+  <script src="./script.js"></script>
+  <script src="./todo.js"></script>
+  <script src="./quotes.js"></script>
 </body>
 </html>
