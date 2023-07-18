@@ -29,6 +29,9 @@ function renderTask(task) {
   let li = document.createElement("li");
   li.dataset.id = task.id;
 
+  let checkboxContainer = document.createElement("div");
+  checkboxContainer.classList.add("checkbox-container");
+
   let checkbox = document.createElement("input");
   checkbox.type = "checkbox";
   checkbox.checked = task.completed;
@@ -38,11 +41,10 @@ function renderTask(task) {
     li.classList.toggle("task-completed", task.completed);
   };
 
+  checkboxContainer.appendChild(checkbox);
+
   let descriptionSpan = document.createElement("span");
   descriptionSpan.innerHTML = task.description;
-
-  let buttonsContainer = document.createElement("div");
-  buttonsContainer.classList.add("buttons-container");
 
   let optionsButton = document.createElement("button");
   optionsButton.innerHTML = "...";
@@ -53,7 +55,7 @@ function renderTask(task) {
   editButton.classList.add("edit-button");
   editButton.onclick = function (event) {
     event.stopPropagation();
-    editTask(task);
+    editTask(task, descriptionSpan);
   };
 
   let deleteButton = document.createElement("button");
@@ -66,26 +68,23 @@ function renderTask(task) {
 
   optionsButton.onclick = function (event) {
     event.stopPropagation();
-    buttonsContainer.classList.toggle("show-buttons");
+    optionsButton.classList.toggle("show-buttons");
   };
 
-  buttonsContainer.appendChild(optionsButton);
-  buttonsContainer.appendChild(editButton);
-  buttonsContainer.appendChild(deleteButton);
-
-  li.appendChild(checkbox);
+  li.appendChild(checkboxContainer);
   li.appendChild(descriptionSpan);
-  li.appendChild(buttonsContainer);
+  li.appendChild(optionsButton);
+  li.appendChild(editButton);
+  li.appendChild(deleteButton);
+
   taskList.appendChild(li);
 }
 
-function editTask(task) {
+function editTask(task, descriptionSpan) {
   let newDescription = prompt("Enter a new description", task.description);
 
   if (newDescription !== null && newDescription.trim() !== "") {
     task.description = newDescription.trim();
-    let li = document.querySelector(`li[data-id="${task.id}"]`);
-    let descriptionSpan = li.querySelector("span");
     descriptionSpan.innerHTML = task.description;
   }
 }
