@@ -95,12 +95,21 @@
         </div>
 
         <!-- Quotes -->
-        <div class="quote-container">
-            <p class="quote-text">
-                
-            </p>
-            <p class="quote-author"></p>
+        <div class="quotes"></div>
+
+            <div class="quotesModal">
+            <input 
+                type="text"
+                id="quoteInput"
+                placeholder="Enter a quote"
+                onkeydown="addQuote(event)"
+            >
+        <div id="quotesList"></div>
         </div>
+
+        <button id="quotesBtn">
+             Quote
+        </button>
 
         <!-- Weather -->
         <div class="weather-container">
